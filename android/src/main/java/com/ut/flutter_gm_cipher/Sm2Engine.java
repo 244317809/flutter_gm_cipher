@@ -1,6 +1,5 @@
 package com.ut.flutter_gm_cipher;
 
-import org.apache.commons.lang3.StringUtils;
 import org.bouncycastle.asn1.gm.GMNamedCurves;
 import org.bouncycastle.asn1.x9.X9ECParameters;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
@@ -90,7 +89,7 @@ public class Sm2Engine {
      * @throws InvalidCipherTextException
      */
     public String encodeDataWithPublicKey(String text, String publicKeyHex) throws InvalidCipherTextException {
-        if (StringUtils.isBlank(text) || StringUtils.isBlank(publicKeyHex)) {
+        if (isEmptyStr(text) || isEmptyStr(publicKeyHex)) {
             throw new InvalidCipherTextException(INVALID_CIPHER_TEXT);
         }
         ECPoint ecp = sm2ECParameters.getCurve().decodePoint(Hex.decode(publicKeyHex));
@@ -119,7 +118,7 @@ public class Sm2Engine {
      * @throws InvalidCipherTextException
      */
     public String decodeDataWithPrivateKey(String text, String privateKeyHex) throws InvalidCipherTextException {
-        if (StringUtils.isBlank(text) || StringUtils.isBlank(privateKeyHex)) {
+        if (isEmptyStr(text) || isEmptyStr(privateKeyHex)) {
             throw new InvalidCipherTextException(INVALID_CIPHER_TEXT);
         }
         byte[] cipherDataByte = Hex.decode(text);
@@ -130,15 +129,8 @@ public class Sm2Engine {
         return new String(arrayOfBytes);
     }
 
-//    public static void main(String[] args) {
-//        try {
-//            Sm2Engine sm2Engine = new Sm2Engine();
-//            String cipherData = sm2Engine.encodeDataWithPublicKey("111111", Constant.Sm2_public_key);
-//            System.out.println("密文：：：" + cipherData);
-//        } catch (NoSuchAlgorithmException e) {
-//            e.printStackTrace();
-//        } catch (InvalidCipherTextException e) {
-//            e.printStackTrace();
-//        }
-//    }
+
+    private boolean isEmptyStr(String input) {
+        return input != null && !input.isEmpty();
+    }
 }

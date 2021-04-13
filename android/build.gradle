@@ -30,6 +30,5 @@ android {
 }
 
 dependencies {
-    api 'org.bouncycastle:bcprov-jdk15on:1.64'
-    implementation 'org.apache.commons:commons-lang3:3.8.1'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
 }
