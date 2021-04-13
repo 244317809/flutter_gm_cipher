@@ -1,0 +1,35 @@
+group 'com.ut.flutter_gm_cipher'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+}
+
+dependencies {
+    api 'org.bouncycastle:bcprov-jdk15on:1.64'
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
+}

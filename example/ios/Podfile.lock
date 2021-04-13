@@ -1,0 +1,33 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_gm_cipher (0.0.1):
+    - Flutter
+  - GMObjC (3.1.3):
+    - GMOpenSSL
+  - GMOpenSSL (2.2.3)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_gm_cipher (from `.symlinks/plugins/flutter_gm_cipher/ios`)
+  - GMObjC
+
+SPEC REPOS:
+  trunk:
+    - GMObjC
+    - GMOpenSSL
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_gm_cipher:
+    :path: ".symlinks/plugins/flutter_gm_cipher/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  flutter_gm_cipher: 3a800f624dd60d2ffae702aaf2a046f488e34df7
+  GMObjC: a64975fa0dab87097ab99e3627778aa12ff097dc
+  GMOpenSSL: 31e201eaebdf4dd876cdd95a4be9ed02686d86ce
+
+PODFILE CHECKSUM: e540fc3be5b0837c5f57242d0f2b74d1819ef8a8
+
+COCOAPODS: 1.10.1
