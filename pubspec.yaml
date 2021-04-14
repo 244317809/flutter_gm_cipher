@@ -1,6 +1,6 @@
 name: flutter_gm_cipher
 description: 封装国产SM2加密和解密的Flutter插件.
-version: 0.0.2
+version: 0.0.3
 author: Jim Liang <xiaojun901226@gmail.com>
 homepage: https://github.com/244317809/flutter_gm_cipher
 

@@ -48,8 +48,3 @@ android {
 flutter {
     source '../..'
 }
-
-dependencies {
-    
-implementation project(path: ':flutter_gm_cipher')
-}

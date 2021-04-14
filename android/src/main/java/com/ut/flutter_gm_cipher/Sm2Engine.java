@@ -131,6 +131,6 @@ public class Sm2Engine {
 
 
     private boolean isEmptyStr(String input) {
-        return input != null && !input.isEmpty();
+        return input == null || input.isEmpty();
     }
 }

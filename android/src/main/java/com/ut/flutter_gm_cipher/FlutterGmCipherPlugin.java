@@ -33,10 +33,11 @@ public class FlutterGmCipherPlugin implements FlutterPlugin, MethodCallHandler {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
     } else if (call.method.equals("sm2EncryptText")) {
-      Map<String, String> arguments = (Map<String, String>) call.arguments;
-      String plainText = arguments.get("plainText");
-      String publicKey = arguments.get("publicKey");
+      String plainText = call.argument("plainText");
+      String publicKey = call.argument("publicKey");
       String enResult;
+      System.out.println("plainText: " + plainText);
+      System.out.println("publicKey: " + publicKey);
       try {
         Sm2Engine sm2Engine = new Sm2Engine();
         enResult = sm2Engine.encodeDataWithPublicKey(plainText, publicKey);
