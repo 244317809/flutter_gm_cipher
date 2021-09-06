@@ -30,5 +30,6 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
 }

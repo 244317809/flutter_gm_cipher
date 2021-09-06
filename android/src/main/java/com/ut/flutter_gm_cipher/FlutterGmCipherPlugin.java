@@ -3,6 +3,7 @@ package com.ut.flutter_gm_cipher;
 import androidx.annotation.NonNull;
 
 import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.jcajce.provider.digest.SM3;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
@@ -13,6 +14,7 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+import ut.pcmspf.common.security.security.SM3Utils;
 
 /** FlutterGmCipherPlugin */
 public class FlutterGmCipherPlugin implements FlutterPlugin, MethodCallHandler {
@@ -47,6 +49,11 @@ public class FlutterGmCipherPlugin implements FlutterPlugin, MethodCallHandler {
         e.printStackTrace();
         result.error("SM2加密异常", e.getLocalizedMessage(), e.getCause());
       }
+    } else if (call.method.equals("sm3EncryptText")) {
+      String plainText = call.argument("plainText");;
+      String enResult = SM3Utils.encrypt(plainText);
+
+      result.success(enResult);
     } else {
       result.notImplemented();
     }

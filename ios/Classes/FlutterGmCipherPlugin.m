@@ -1,5 +1,6 @@
 #import "FlutterGmCipherPlugin.h"
 #import "GMSm2Utils.h"
+#import "GMSm3Utils.h"
 
 @implementation FlutterGmCipherPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -30,6 +31,9 @@
       
       NSString *c1c2c3Hex = [NSString stringWithFormat:@"04%@%@%@", c1c3c2[0], c1c3c2[2], c1c3c2[1]];
       result(c1c2c3Hex);
+  } else if([@"sm3EncryptText" isEqualToString:call.method]) {
+      NSString *plainText = call.arguments[@"plainText"];
+      result([GMSm3Utils hashWithString:plainText]);
   } else {
     result(FlutterMethodNotImplemented);
   }

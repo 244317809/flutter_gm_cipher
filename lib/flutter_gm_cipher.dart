@@ -16,4 +16,10 @@ class FlutterGmCipher {
     final String encryptText = await _channel.invokeMethod('sm2EncryptText', {'plainText': plainText, 'publicKey': publicKeyHex});
     return encryptText;
   }
+
+  static Future<String> sm3EncryptText(String plainText) async {
+    final String encryptText = await _channel.invokeMethod('sm3EncryptText', {'plainText': plainText});
+
+    return encryptText;
+  }
 }
